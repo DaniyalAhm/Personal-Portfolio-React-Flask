@@ -1,0 +1,58 @@
+.App {
+  text-align: center;
+  background-color: black;
+  color: white; /* Optional: to make text readable on black background */
+  min-height: 100vh; /* Ensure it takes up full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Start content from the top */
+  font-family: 'Times New Roman', Times, serif;
+  padding: 20px; /* Optional: Adds padding around the content */
+}
+
+.Header {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+}
+.Header a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+
+
+.Projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Align items to the start of the container */
+  margin-top: 20px;
+  width: 100%; /* Adjusts the width to match the parent container */
+  margin-left: 0%; /* Adjust this value as needed */
+}
+
+
+
+/* Footer styles */
+.Footer {
+  background-color: black;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.Footer a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+.Footer a:hover {
+  text-decoration: underline;
+}
