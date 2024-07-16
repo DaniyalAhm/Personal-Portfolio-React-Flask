@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function Projects() {
-  const [repos, setRepos] = useState({});
+  const [repos, setRepos] = useState([]);
 
   useEffect(() => {
     axios.get('http://127.0.0.1:5000/repos')
@@ -15,16 +15,22 @@ function Projects() {
   }, []);
 
   return (
-    <div className="Projects">
-      <h2>My GitHub Repositories</h2>
-      <ul>
-        {Object.entries(repos).map(([name, url]) => (
-          <li key={name}>
-            <a href={url} target="_blank" rel="noopener noreferrer">{name}</a>
-          </li>
+
+    <div>
+      <h2 className='Section_Title'>Projects </h2>
+    <div className="ProjectsContainor">
+
+      <div className="Projects">
+        {repos.map((repo) => (
+          <div key={repo.name}>
+            <a href={repo.url} target="_blank" rel="noopener noreferrer">{repo.name}</a>
+            <p>{repo.description}</p>
+          </div>
+          
         ))}
-      </ul>
-    </div>
+        </div>
+        </div>
+</div>
   );
 }
 

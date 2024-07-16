@@ -10,6 +10,18 @@
   padding: 20px; /* Optional: Adds padding around the content */
 }
 
+.Aboutme{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  margin-left: 20%;
+  margin-right: 20%;
+
+}
+
 .Header {
   background-color: black;
   color: white;
@@ -17,24 +29,80 @@
   text-align: center;
   width: 100%;
 }
+
 .Header a {
   color: white;
   margin: 0 15px;
   text-decoration: none;
 }
 
+.ProjectsContainor {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  margin-top: 20px;
+  width: 100%; /* Adjusts the width to match the parent container */
+  padding: 20px;
+  color: white;
+}
+
+.ProjectsContainor h2 {
+  color: white;
+}
+
+.Section_Title {
+  color: white;
+  position: relative;
+  right:40%;
+}
 
 
 .Projects {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start; /* Align items to the start of the container */
-  margin-top: 20px;
-  width: 100%; /* Adjusts the width to match the parent container */
-  margin-left: 0%; /* Adjust this value as needed */
+  flex-wrap: wrap; /* Allow wrapping to the next line */
+  justify-content: center; /* Center the content horizontally */
+  gap: 20px; /* Add space between project items */
 }
 
+@keyframes floatIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
+.Projects > div {
+  background-color: white;
+  color: black;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 15px;
+  width: 250px; /* Fixed width for each project box */
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: floatIn 0.5s ease-in-out;
+}
+
+.Projects a {
+  color: black;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+.Projects p {
+  color: black;}
+
+.Projects a:hover {
+  text-decoration: underline;
+}
 
 /* Footer styles */
 .Footer {

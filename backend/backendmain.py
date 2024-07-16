@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, jsonify
 import requests
 import os
 from dotenv import load_dotenv
@@ -9,8 +9,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 load_dotenv()
 token = os.environ.get('GITHUB_TOKEN')  
-CORS(app, origins=["http://172.17.0.2:3001"])  # Allow requests from React app's IP and port
-
+CORS(app, origins= ["http://localhost:3001"])
 @app.route('/download_resume')
 def download_resume():
     return send_from_directory(directory='static', filename='resume.pdf', as_attachment=True)
@@ -29,14 +28,19 @@ def resume():
     print(f"Response Content: {response.content}")
 
     repos = response.json()
-    repos = {}
+    formatted_repos = []
     for repo in repos:
-        print(f"Name: {repo['name']}, URL: {repo['html_url']}")
-        repos[repo['name']] = repo['html_url']
+        formatted_repos.append({
+            'name': repo['name'],
+            'url': repo['html_url'],
+            'description': 'This is where I would put a description of the repo, if I had one.'
 
-    print(repos)
 
-    return repos
+        })
+
+
+
+    return jsonify(formatted_repos)
 
 if __name__ == '__main__':
     app.run(debug=True)
