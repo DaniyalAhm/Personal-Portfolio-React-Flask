@@ -11,7 +11,7 @@ function Header() {
 
             <h1
             style={{fontSize: "500%"}}
-            >Daniyal Ahmed
+            >Daniyal  Ahmed
             </h1>
             <p classname='Aboutme'>I am Daniyal Ahmed, a software developer and data science enthusiast with a keen interest in building cutting-edge applications and exploring complex data insights. 
                 My educational and professional journey has equipped me with a robust knowledge base in machine learning and backend development, utilizing technologies like Node.js, Flask, and C++. 
