@@ -1,5 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Great+Vibes:regular);
-
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes:regular');
 
 .App {
   text-align: center;
@@ -11,38 +10,42 @@
   justify-content: flex-start; /* Start content from the top */
   font-family: Arial, Helvetica, sans-serif;
   padding: 10px; /* Optional: Adds padding around the content */
-
 }
-
-
 
 .Header {
   background-color: black;
   color: white;
   padding: 20px;
   text-align: center;
-  width: 100%;}
-
-.Header a {
-  color: white;
-  margin: 0 15px;
-  text-decoration: none;
+  width: 100%;
 }
 
+.Resume {
+  color: black;
+  margin: 0 15px;
+  text-decoration: none;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 3%;
+}
 
-.Header h1{
+.Line {
+  margin-top: 3%;
+}
+
+.Header h1 {
   font-family: 'Great Vibes', cursive;
   font-size: 50px;
   margin: 0;
   padding: 10px;
-
 }
+
 .inverted-icon {
   filter: invert(1);
 }
 
-
-.Header p{
+.Header p {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,7 +54,6 @@
   text-align: center;
   margin-left: 20%;
   padding: 10px;
-
 }
 
 .ProjectsContainor {
@@ -72,9 +74,8 @@
 .Section_Title {
   color: white;
   position: relative;
-  right:40%;
+  right: 40%;
 }
-
 
 .Projects {
   display: flex;
@@ -109,6 +110,11 @@
   justify-content: center;
   animation: floatIn 0.5s ease-in-out;
   margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out; /* Add transition for smooth hover effect */
+}
+
+.Projects > div:hover {
+  transform: translateY(-10px); /* Move the box up by 10px on hover */
 }
 
 .Projects a {
@@ -117,8 +123,10 @@
   border-radius: 5px;
   padding: 5px 10px;
 }
+
 .Projects p {
-  color: black;}
+  color: black;
+}
 
 .Projects a:hover {
   text-decoration: underline;

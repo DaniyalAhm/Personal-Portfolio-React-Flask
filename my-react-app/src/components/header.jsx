@@ -22,10 +22,10 @@ function Header() {
 </p>
 
 
-            <a href="/resume.pdf">Download My Resume</a>
+            <a className='Resume' href="/resume.pdf">Download My Resume</a>
 
 
-            <hr></hr>
+            <hr className="Line"></hr>
 
 
 
