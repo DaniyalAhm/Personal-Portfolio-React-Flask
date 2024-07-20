@@ -36,42 +36,81 @@ def download_resume():
 def fetch_from_database():
     repos_database = mongo.db.repo.find()
     repos_database_names = {item['name']: True for item in repos_database}
-
-
-
-
-
-    response = requests.get('https://api.github.com/users/DaniyalAhm/repos', headers=headers)
-    
-
-
-
+    response = requests.get('https://api.github.com/users/DaniyalAhm/repos', headers=headers) 
     repos = response.json()
-
     for repo in repos:
-        if repo['name'] not in repos_database_names:
+        if repo[ 'name'] not in repos_database_names:
+
+            dbrepos = list(mongo.db.repo.find(repo['name']))
+
+
             print(f"Adding new repository: {repo['name']}")
             add_repo(repo)
             repos_database_names[repo['name']] = True
+        elif dbrepos ['commit'] != get_latest_commit(repo['name']):
+            
+            print(f"Updating repository: {repo['name']}")
+            mongo.db.repo.delete_one({'name': repo['name']})
+            add_repo(repo)
 
-    return list(mongo.db.repo.find())
+
+    full_data = list(mongo.db.repo.find())
+    result = []
+    for repo in full_data:
+        if repo['Display'] == True:
+            result.append(repo)
+            
+
+
+
+
+    return result
+def get_latest_commit(repo_name):
+    url = f'https://api.github.com/repos/DaniyalAhm/{repo_name}/commits'
+    commits_response = requests.get(url, headers=headers)
+    commits = commits_response.json()
+
+    if len(commits) > 0:
+        return commits[0]['sha']
+    return ''
+
+
+
 def add_repo(repo):
     description = ''
+    Display = False
+    check = ' <!-- DISPLAY=TRUE -->'
     readme_response = requests.get(f'https://api.github.com/repos/DaniyalAhm/{repo["name"]}/readme', headers=headers)
     if readme_response.status_code == 200:
         readme_content = readme_response.json().get('content', '')
         readme_content = base64.b64decode(readme_content).decode('utf-8')
+        if check in readme_content:
+            Display = True
+            readme_content = readme_content.replace(check, '')
+
         clean_readme_content = clean_html(readme_content)
+
+
+        url = f'https://api.github.com/repos/DaniyalAhm/{repo}/commits'
+        commits_response = requests.get(url, headers=headers)
+        commits = commits_response.json()
+        if len(commits) > 0:
+            commit = commits[0]
+            commit_sha = commit['sha']
+
         description = summarizer(clean_readme_content)
         description = description.replace('#', '')
 
-
-
     repo_info = {
+        'commit':commit_sha,
         'name': repo['name'],
         'url': repo['html_url'],
-        'description': description
+        'description': description,
+        'Display': Display
     }
+
+
+
     mongo.db.repo.insert_one(repo_info)
 
 @app.route('/repos', methods=['GET'])
