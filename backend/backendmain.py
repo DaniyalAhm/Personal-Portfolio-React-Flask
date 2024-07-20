@@ -34,26 +34,27 @@ def download_resume():
     return send_from_directory(directory='static', filename='resume.pdf', as_attachment=True)
 
 def fetch_from_database():
-    repos_database = mongo.db.repos.find()
-    
+    repos_database = mongo.db.repo.find()
+    repos_database_names = {item['name']: True for item in repos_database}
+
+
+
+
+
     response = requests.get('https://api.github.com/users/DaniyalAhm/repos', headers=headers)
+    
+
+
+
     repos = response.json()
-    if(repos_database ==None):
-        for repo in repos:
+
+    for repo in repos:
+        if repo['name'] not in repos_database_names:
+            print(f"Adding new repository: {repo['name']}")
             add_repo(repo)
+            repos_database_names[repo['name']] = True
 
-    else:
-        repos_database_names = {repo['name']: True for repo in repos_database}
-
-        response = requests.get('https://api.github.com/users/DaniyalAhm/repos', headers=headers)
-        repos = response.json()
-
-        for repo in repos:
-            if repo['name'] not in repos_database_names:
-                add_repo(repo)
-
-    return list(mongo.db.repos.find())
-
+    return list(mongo.db.repo.find())
 def add_repo(repo):
     description = ''
     readme_response = requests.get(f'https://api.github.com/repos/DaniyalAhm/{repo["name"]}/readme', headers=headers)
@@ -62,13 +63,16 @@ def add_repo(repo):
         readme_content = base64.b64decode(readme_content).decode('utf-8')
         clean_readme_content = clean_html(readme_content)
         description = summarizer(clean_readme_content)
+        description = description.replace('#', '')
+
+
 
     repo_info = {
         'name': repo['name'],
         'url': repo['html_url'],
         'description': description
     }
-    mongo.db.repos.insert_one(repo_info)
+    mongo.db.repo.insert_one(repo_info)
 
 @app.route('/repos', methods=['GET'])
 def repos():

@@ -7,7 +7,11 @@ function Header() {
     return (
         <header className="Header">
 
-
+<div className="star-container">
+        {Array.from({ length: 45 }).map((_, index) => (
+          <div key={index} className="star"></div>
+        ))}
+      </div>
 
             <h1
             style={{fontSize: "500%"}}

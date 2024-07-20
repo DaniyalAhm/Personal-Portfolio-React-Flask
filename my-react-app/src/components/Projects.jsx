@@ -23,7 +23,8 @@ function Projects() {
       <div className="Projects">
         {repos.map((repo) => (
           <div key={repo.name}>
-            <a href={repo.url} target="_blank" rel="noopener noreferrer">{repo.name}</a>
+            <a className='Project_title' href={repo.url} target="_blank" rel="noopener noreferrer">{repo.name}</a>
+            <hr></hr>
             <p>{repo.description}</p>
           </div>
           

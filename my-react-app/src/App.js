@@ -7,12 +7,14 @@ import React from 'react';
 function App() {
   return (
     <div className="App">
-      <Header  />
-
-      <Projects className='Projects' />
-      
-
-      <Footer className='Footer' />
+      <div className="star-container">
+        {Array.from({ length: 45 }).map((_, index) => (
+          <div key={index} className="star"></div>
+        ))}
+      </div>
+      <Header />
+      <Projects className="Projects" />
+      <Footer className="Footer" />
     </div>
   );
 }
