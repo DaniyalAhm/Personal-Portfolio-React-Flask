@@ -74,6 +74,7 @@ body, html {
   background-color: #1f1f1f;
   z-index: 2; /* Ensure section title is above stars */
   position: relative;
+  left: 1%;
 }
 
 .ProjectsContainor {
@@ -81,7 +82,7 @@ body, html {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 40px 20px;
+  padding: 20px 20px;
   z-index: 2; /* Ensure project container is above stars */
   position: relative;
 }
@@ -92,6 +93,8 @@ body, html {
   gap: 20px;
   justify-content: center;
   width: 100%;
+  margin-right: 2%;
+  
 }
 
 .Project a {
@@ -146,6 +149,7 @@ body, html {
   margin: 10px 0;
   color: black;
   background-color: black;
+  font: 1em sans-serif;
 }
 
 .Projects p {

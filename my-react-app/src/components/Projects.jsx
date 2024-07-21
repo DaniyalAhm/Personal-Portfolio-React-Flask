@@ -3,20 +3,31 @@ import axios from 'axios';
 
 function Projects() {
   const [repos, setRepos] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios.get('http://127.0.0.1:5000/repos')
       .then(response => {
         setRepos(response.data);
+        setLoading(false);
       })
       .catch(error => {
         console.error('Error fetching the repositories:', error);
       });
   }, []);
 
+  if (loading) {
+
+    return <p>Loading...</p>;
+  }
+
+
   return (
 
+
     <div>
+
+
       <h2 className='Section_Title'>Projects </h2>
     <div className="ProjectsContainor">
 
