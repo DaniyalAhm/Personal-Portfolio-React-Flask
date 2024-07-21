@@ -2,6 +2,9 @@
 
 This is a personal portfolio website for showcasing my projects and resume. The website is built using React for the frontend and Flask for the backend, and it connects to a MongoDB database to fetch project data from my GitHub repositories. Feel free to use this as a template for your own Personal Website 😊
 
+ <!-- DISPLAY=TRUE -->
+
+
 ## Table of Contents
 
 - [Demo](#demo)
