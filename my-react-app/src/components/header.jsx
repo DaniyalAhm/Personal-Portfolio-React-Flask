@@ -26,7 +26,7 @@ function Header() {
 </p>
 
 
-            <a className='Resume' href="/resume.pdf">Download My Resume</a>
+            <a className='Resume' href="http://127.0.0.1:5000/download_resume">Download My Resume</a>
 
 
             <hr className="Line"></hr>

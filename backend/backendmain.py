@@ -31,7 +31,7 @@ headers = {'Authorization': f'token {token}'}
 
 @app.route('/download_resume')
 def download_resume():
-    return send_from_directory(directory='static', filename='resume.pdf', as_attachment=True)
+    return send_from_directory(directory='static', filename='Daniyals-Resume.pdf', as_attachment=True, path='static/Daniyals-Resume.pdf')
 
 def fetch_from_database():
     repos_database = list( mongo.db.repo.find())
