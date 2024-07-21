@@ -1,9 +1,6 @@
-It appears that the image file name is now correctly set to `image.png`. Let's update the `README.md` to use this new file name. Here's the corrected version:
+# Personal Portfolio
 
-```markdown
-# Personal Portfolio 😊
-
-This is a personal portfolio website for showcasing my projects and resume. The website is built using React for the frontend and Flask for the backend, and it connects to a MongoDB database to fetch project data from my GitHub repositories. Feel free to use this as a template for your own Personal Website.
+This is a personal portfolio website for showcasing my projects and resume. The website is built using React for the frontend and Flask for the backend, and it connects to a MongoDB database to fetch project data from my GitHub repositories. Feel free to use this as a template for your own Personal Website 😊
 
 ## Table of Contents
 
@@ -97,7 +94,7 @@ Once the setup is complete, you can access the website at `http://localhost:3000
 
 ## Screenshots
 
-![Portfolio Screenshot](./image.png)
+![Portfolio Screenshot](image.png)
 
 ## License
 
@@ -107,5 +104,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 - LinkedIn: [Daniyal Ahmed](https://www.linkedin.com/in/daniyal-ahmed-435a36280/)
 - GitHub: [DaniyalAhm](https://github.com/DaniyalAhm)
-```
+
 
