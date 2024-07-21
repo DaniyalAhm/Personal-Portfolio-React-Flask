@@ -97,7 +97,7 @@ Once the setup is complete, you can access the website at `http://localhost:3000
 
 ## Screenshots
 
-![Portfolio Screenshot](/Screenshot 2024-07-21 010426.png)
+![Portfolio Screenshot](Screenshot 2024-07-21 010426.png)
 
 ## License
 
