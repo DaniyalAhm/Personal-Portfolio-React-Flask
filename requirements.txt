@@ -1,7 +1,7 @@
-Flask==2.3.2
-requests==2.31.0
-python-dotenv==1.0.0
-Flask-Cors==3.1.0
-pymongo==4.5.0
-transformers==4.31.0
-torch==2.0.1
+Flask
+requests
+python-dotenv
+Flask-Cors
+pymongo
+transformers
+torch
